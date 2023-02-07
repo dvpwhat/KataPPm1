@@ -13,22 +13,22 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args)  {
-        UserDao userDao = new UserDaoJDBCImpl();
+        UserService UserService = new UserServiceImpl();
 
         try {
-            userDao.createUsersTable();
+            UserService.createUsersTable();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        userDao.saveUser("Name1", "LastName1", (byte) 20);
-        userDao.saveUser("Name2", "LastName2", (byte) 25);
-        userDao.saveUser("Name3", "LastName3", (byte) 31);
-        userDao.saveUser("Name4", "LastName4", (byte) 38);
+        UserService.saveUser("Name1", "LastName1", (byte) 20);
+        UserService.saveUser("Name2", "LastName2", (byte) 25);
+        UserService.saveUser("Name3", "LastName3", (byte) 31);
+        UserService.saveUser("Name4", "LastName4", (byte) 38);
 
-        userDao.removeUserById(1);
-        userDao.getAllUsers();
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+        UserService.removeUserById(1);
+        UserService.getAllUsers();
+        UserService.cleanUsersTable();
+        UserService.dropUsersTable();
     }
 }
